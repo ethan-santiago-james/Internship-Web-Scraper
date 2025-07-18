@@ -86,7 +86,7 @@ def render_page(next_page,page_number):
         curr_page += 1
         pages[curr_page].tkraise()
     elif curr_page > 0:
-        curr_page = 0
+        curr_page -= 1
         pages[curr_page].tkraise()
         
     
