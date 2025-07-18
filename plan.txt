@@ -1,0 +1,39 @@
+SCRAPING:
+
+- When you search a query
+
+FOUR POSSIBILITIES:
+
+- Site that leads to a job listing
+- Site that is a job listing
+- Site that is a job posting
+- Site that is neither
+
+WHAT TO DO IN EACH SCENARIO:
+
+Site that leads to job listing:
+
+- Look for a button that leads to a job listing
+
+Site that is a job listing:
+
+- Scan for links with relevant keywords
+
+Site that is a job posting:
+
+- Scan for the job title
+
+Site that is neither:
+
+- Leave
+
+HOW CAN WE MAKE A DECISION OF WHAT THE SITE IS? (doesn't have to be perfect)
+
+- Find 20 keywords, and whichever matches the most is chosen
+
+Keywords in site which leads to listing: Explore,Find
+Keywords in site which is listing: Number > 5,Dates,Apply,
+Keywords in site which is a posting: CV, Description, Qualifications, Submit
+
+- If cumulative sum of keywords is less than a certain amount, go back
+
