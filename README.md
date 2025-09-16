@@ -13,7 +13,6 @@
 
 ### - pip3 install selenium (or pip install if you have python instead of python3)
 ### - pip3 install tkinter
-### - pip3 install webdriver
 ### - pip3 install bs4
 ### - pip3 install urllib
 ### - pip3 install logging
