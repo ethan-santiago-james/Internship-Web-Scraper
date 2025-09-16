@@ -14,7 +14,7 @@ curr_page = -1
 root = tk.Tk(screenName="Employment List",baseName="Employment List",className="Employment List")
 root.title("Employment List")
 root.configure(bg='white')
-root.geometry('435x700+920+50')
+root.geometry('450x700+920+50')
 
 root.grid_rowconfigure(0, weight=1)
 root.grid_columnconfigure(0, weight=1)
