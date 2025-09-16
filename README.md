@@ -7,7 +7,7 @@
 ### The program then searches "Apple Internship", "Google Internship" etc.
 
 ### After that it compiles relevant links into one place for the user. It's like a Google search engine but for multiple 
-search engines at once.
+### search engines at once.
 
 ## Start Command: python3 window.py from root directory
 
