@@ -7,8 +7,11 @@
 ### After that it compiles relevant links into one place for the user. It's like a Google search engine but for multiple 
 ### search engines at once.
 
-## Start Command: python3 window.py from root directory (or python window.py ) run python --version or python3 --version to see which one you have installed
+## Start Command: 
 
+### python3 window.py from root directory (or python window.py ) run python --version or python3 --version to see which one you have installed
 
-- pip3 install -r requirements.txt (or pip if you don't use python3)
-- brew install python-tk
+## Build Commands
+
+* pip3 install -r requirements.txt (or pip if you don't use python3)
+* brew install python-tk
