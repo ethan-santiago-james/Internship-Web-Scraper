@@ -32,7 +32,7 @@ def search_links(list_of_links,keyword):
 
 def open_link(link,job_name):
     
-    global driver
+    global drivergit 
     
     try:
         
@@ -102,7 +102,7 @@ def is_valid_job(job_text):
     for word in words_list:
 
         if (
-            any(k in word.lower() for k in actual_job_posting_keywords)
+            any(k in word for k in actual_job_posting_keywords)
             and not any(k in word.lower() for k in not_actual_job_posting_keywords)
         ):
             return True
@@ -164,7 +164,7 @@ def search_within_link(link):
 
         for button in buttons:
 
-           if any(k in button.text.lower() for k in job_listing_button_keywords):
+           if any(k in button.text for k in job_listing_button_keywords):
                 
                 buttons_to_be_clicked.append(button)
 
