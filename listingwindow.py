@@ -18,7 +18,23 @@ root.geometry('450x700+920+50')
 
 root.grid_rowconfigure(0, weight=1)
 root.grid_columnconfigure(0, weight=1)
-    
+
+def on_enter(e):
+    e.widget.config(fg="#0b57d0")
+
+def on_leave(e):
+    e.widget.config(fg="#1a73e8")
+
+btn_style = {
+    "font": ("Segoe UI", 10),
+    "bg": "#1a73e8",
+    "fg": "white",
+    "activebackground": "#0b57d0",
+    "relief": "flat",
+    "padx": 10,
+    "pady": 5
+}
+
 class Page(tk.Frame):
     
     def __init__(self,parent,job_titles,links,page_number):
@@ -33,21 +49,26 @@ class Page(tk.Frame):
         
         for title in job_titles:
             
-            if "LISTINGS FOR" in title:
-                
-                link = tk.Label(self,text=title,fg='red',cursor="hand2")
-                link.pack(pady=10)
-                
-            else:
+            card = tk.Frame(self, bg="#f5f5f5", bd=1, relief="solid")
+            card.pack(fill="x", padx=10, pady=5)
 
-                link = tk.Label(self,text=title,fg="aqua",cursor="hand2")
-                link.pack(pady=10)
-                link.bind("<Button-1>",lambda event, url=links[curr_link]: scraping.open_link(url,title))
+            link = tk.Label(card, text=title, fg="#1a73e8", cursor="hand2",bg="#f5f5f5", font=("Segoe UI", 11))
+            link.pack(anchor="center", padx=10, pady=5)
+
+            if "LISTINGS FOR" not in title:
+                card.bind("<Enter>", on_enter)
+                card.bind("<Leave>", on_leave)
+                card.bind("<Button-1>", lambda event, url=links[curr_link]: scraping.open_link(url, title))
+
+                link.bind("<Enter>", on_enter)
+                link.bind("<Leave>", on_leave)
+                link.bind("<Button-1>", lambda event, url=links[curr_link]: scraping.open_link(url, title))
+
             curr_link += 1
             
-        previous_page_button = tk.Button(self,text="Previous Page",command=lambda: render_page(False,curr_page))
+        previous_page_button = tk.Button(self,text="<- Previous", **btn_style, command=lambda: render_page(False,curr_page))
         previous_page_button.pack(pady=10)
-        next_page_button = tk.Button(self,text="Next Page",command=lambda: render_page(True,curr_page))
+        next_page_button = tk.Button(self,text="Next ->", **btn_style, command=lambda: render_page(True,curr_page))
         next_page_button.pack(pady=10)
         
     
@@ -63,7 +84,7 @@ def generate_pages(job_titles,links):
         titles_for_curr_page = []
         links_for_curr_page = []
         
-        for j in range(0,10):
+        for j in range(0,5):
             
             if opportunity_counter < len(job_titles):
                     
