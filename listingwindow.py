@@ -8,6 +8,13 @@ Created on Tue Jul 8 16:41:49 2025
 import tkinter as tk
 import scraping
 
+# colour palette
+BG_COLOR = "#1e1e2f"
+FG_COLOR = "#ffffff"
+ACCENT = "#4CAF50"
+DANGER = "#e74c3c"
+ENTRY_BG = "#2c2c3e"
+
 pages= []
 curr_page = -1
 
@@ -18,6 +25,27 @@ root.geometry('450x700+920+50')
 
 root.grid_rowconfigure(0, weight=1)
 root.grid_columnconfigure(0, weight=1)
+
+# scroll wheel
+container = tk.Frame(root)
+container.pack(fill="both", expand=True)
+
+canvas = tk.Canvas(container, bg=BG_COLOR, highlightthickness=0)
+scrollbar = tk.Scrollbar(container, orient="vertical", command=canvas.yview)
+
+scrollable_frame = tk.Frame(canvas, bg=BG_COLOR)
+
+scrollable_frame.bind(
+    "<Configure>",
+    lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+)
+
+canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+
+canvas.configure(yscrollcommand=scrollbar.set)
+
+canvas.pack(side="left", fill="both", expand=True)
+scrollbar.pack(side="right", fill="y")
 
 def on_enter(e):
     e.widget.config(fg="#0b57d0")
@@ -43,7 +71,7 @@ class Page(tk.Frame):
         self.page_number = page_number
         label = tk.Label(self,text="Listings",font=("Arial",24))
         label.pack(pady=10)
-        page_number = tk.Label(self,text="Page Number " + str(page_number),fg="black",cursor="hand2")
+        page_number = tk.Label(self,text="Page Number " + str(page_number+1),fg="black",cursor="hand2")
         page_number.pack(pady=10)
         curr_link = 0
         
@@ -93,7 +121,7 @@ def generate_pages(job_titles,links):
 
                 opportunity_counter += 1
     
-        new_page = Page(root,titles_for_curr_page,links_for_curr_page,page_number)
+        new_page = Page(scrollable_frame,titles_for_curr_page,links_for_curr_page,page_number)
         new_page.grid(row=0,column=0,sticky="nsew")
         pages.append(new_page)
         page_number += 1

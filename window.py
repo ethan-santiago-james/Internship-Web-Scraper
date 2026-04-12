@@ -86,13 +86,7 @@ title = tk.Label(scrollable_frame, text='Welcome To Employment Finder!',
         bg=BG_COLOR, fg=FG_COLOR, font=("Arial",16,"bold"))
 title.grid(row=0,column=3,pady=20)
 
-add_keyword_label = tk.Label(scrollable_frame,text='Enter Keyword').grid(row=2,column=2)
-add_keyword_entry = tk.Entry(scrollable_frame,bg=ENTRY_BG)
-add_keyword_entry.grid(row=2,column=3,padx=10,pady=5)
-
-add_keyword_submit = tk.Button(scrollable_frame,text='Submit',command=lambda: confirm_keyword(add_keyword_entry),bg="green").grid(row=2,column=4)
-
-confirm_links_button = tk.Button(scrollable_frame,text='Confirm Companies',command=lambda: scraping.search_links(entry_lists,keyword),bg="green")
+confirm_links_button = tk.Button(scrollable_frame,text='Confirm Companies',command=lambda: scraping.search_links(entry_lists),bg="green")
 
 add_link_button = tk.Button(scrollable_frame,text='Add Company',width=25,command=lambda: add_link(confirm_links_button),pady=15)
 add_link_button.grid(row=3,column=3)
