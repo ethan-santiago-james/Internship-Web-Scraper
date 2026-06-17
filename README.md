@@ -1,5 +1,7 @@
 # Internship Web Scraper
 
+This program is still in development. A program that searches the web for internships. Code, and updated README is on the master branch.
+
 ### This is a program designed to scrape the web for internships or anything you want. How it works is that you enter in a keyword such as "internship" then press submit. Secondly, you list individual search terms to associate with that keyword such as different company names like Apple, Google, or Microsoft.
 
 ### The program then searches "Apple Internship", "Google Internship" etc.
